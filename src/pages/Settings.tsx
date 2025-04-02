@@ -14,7 +14,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Trash2, Database, Download, Shield } from 'lucide-react';
-import { toast } from '@/components/ui/sonner';
+import { toast } from "@/components/ui/sonner";
 
 const Settings = () => {
   const handleClearData = () => {

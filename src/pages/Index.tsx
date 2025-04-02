@@ -3,6 +3,7 @@ import React from 'react';
 import { ClosetProvider } from '@/context/ClosetContext';
 import { Outlet } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
+import { Toaster } from "@/components/ui/sonner";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
           <Outlet />
         </div>
         <Navigation />
+        <Toaster />
       </div>
     </ClosetProvider>
   );
