@@ -41,7 +41,7 @@ const Home = () => {
             <Bell className="w-5 h-5 text-accent-foreground flex-shrink-0 mt-0.5" />
             <div>
               <p className="font-medium text-accent-foreground">
-                {unwornItems.length} items haven't been worn recently
+                {unwornItems.length} {unwornItems.length === 1 ? 'item' : 'items'} haven't been worn recently
               </p>
               <p className="text-sm text-accent-foreground/80">
                 Consider wearing {unwornItems[0].name} soon to get more value.
