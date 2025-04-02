@@ -6,7 +6,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Camera, UploadCloud } from 'lucide-react';
 import { useCloset } from '@/context/ClosetContext';
-import { CATEGORIES, ClothingItem } from '@/types';
+import { Category, CATEGORIES, ClothingItem } from '@/types';
 import {
   Form,
   FormControl,
@@ -26,10 +26,11 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 
+// Fix the enum type by using "as const" and z.enum
 const formSchema = z.object({
   name: z.string().min(1, "Item name is required"),
   price: z.coerce.number().min(0, "Price must be a positive number"),
-  category: z.enum(CATEGORIES),
+  category: z.enum(CATEGORIES as unknown as [string, ...string[]]),
   purchaseDate: z.string().optional(),
   wearGoal: z.coerce.number().optional(),
   notes: z.string().optional(),
@@ -47,7 +48,7 @@ const AddItem = () => {
     defaultValues: {
       name: "",
       price: 0,
-      category: "Other",
+      category: "Other" as Category,
       purchaseDate: new Date().toISOString().split('T')[0],
       wearGoal: undefined,
       notes: "",
@@ -67,9 +68,13 @@ const AddItem = () => {
   
   const onSubmit = (values: FormValues) => {
     const newItem: Omit<ClothingItem, 'id'> = {
-      ...values,
+      name: values.name,
+      price: values.price,
+      category: values.category as Category,
       photoUrl: imagePreview || undefined,
       purchaseDate: values.purchaseDate || new Date().toISOString(),
+      wearGoal: values.wearGoal,
+      notes: values.notes,
     };
     
     addItem(newItem);
