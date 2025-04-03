@@ -20,7 +20,9 @@ const config: CapacitorConfig = {
     // This will help with status bar issues
     backgroundColor: "#ffffff",
     // Ensure status bar is properly handled
-    statusBarStyle: "dark"
+    statusBarStyle: "dark",
+    // Add this to avoid header import issues
+    scheme: "App"
   }
 };
 
