@@ -83,7 +83,7 @@ const AddItem = () => {
   
   return (
     <div className="pb-20">
-      <header className="py-6">
+      <header className="py-6 mt-4">
         <h1 className="text-2xl font-bold">Add New Item</h1>
       </header>
       
