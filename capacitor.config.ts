@@ -22,7 +22,12 @@ const config: CapacitorConfig = {
     // Ensure status bar is properly handled
     statusBarStyle: "dark",
     // Add this to avoid header import issues
-    scheme: "App"
+    scheme: "App",
+    // Add build settings to fix header import issues
+    buildSettings: {
+      CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES: "YES",
+      HEADER_SEARCH_PATHS: "$(inherited) ${PODS_ROOT}/CapacitorCordova"
+    }
   }
 };
 
