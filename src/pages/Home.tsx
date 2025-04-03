@@ -29,7 +29,7 @@ const Home = () => {
       <div className="absolute -z-10 w-40 h-40 rounded-full bg-pink-200/40 blur-3xl top-10 -left-20"></div>
       <div className="absolute -z-10 w-40 h-40 rounded-full bg-purple-200/30 blur-3xl bottom-40 -right-20"></div>
       
-      <header className="py-6">
+      <header className="py-6 mt-6">
         <h1 className="text-2xl font-bold mb-2 flex items-center gap-2 y2k-shadow">
           <Sparkles className="w-5 h-5 text-pink-400" />
           Your Closet

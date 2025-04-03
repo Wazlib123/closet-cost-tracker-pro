@@ -88,23 +88,36 @@
 }
 
 /* iOS Safe Areas and Status Bar Handling */
+.safe-area-top {
+  height: env(safe-area-inset-top, 20px);
+  background-color: rgba(255, 240, 255, 0.9);  /* Slightly transparent pink to match theme */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  backdrop-filter: blur(5px);
+}
+
 .pt-safe {
-  padding-top: env(safe-area-inset-top, 0);
+  padding-top: env(safe-area-inset-top, 20px);
 }
 
 .pb-safe {
-  padding-bottom: env(safe-area-inset-bottom, 0);
+  padding-bottom: env(safe-area-inset-bottom, 20px);
 }
 
 .has-safe-area-padding header,
 .has-safe-area-padding .page-header {
-  padding-top: calc(env(safe-area-inset-top, 0) + 1rem);
+  padding-top: calc(env(safe-area-inset-top, 20px) + 1rem);
+  position: relative;
+  z-index: 10;
 }
 
 /* Add specific header spacing for AddItem and EditItem pages */
 .has-safe-area-padding [class*="AddItem"] header,
 .has-safe-area-padding [class*="EditItem"] header {
-  padding-top: calc(env(safe-area-inset-top, 0) + 1.5rem);
+  padding-top: calc(env(safe-area-inset-top, 20px) + 1.5rem);
 }
 
 .y2k-gradient {
